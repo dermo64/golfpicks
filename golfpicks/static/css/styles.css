@@ -1,0 +1,28 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+
+.row {
+  display: flex;
+  font-size: 12px;
+}
+
+.row > div {
+  flex: 1;
+  background: lightgrey;
+  border: 1px solid grey;
+}
+
+
+div.container1 h1 {
+  text-align:center;
+}
+div.container1 h2 {
+  text-align:center;
+}
+div.container1 h3 {
+  text-align:center;
+}

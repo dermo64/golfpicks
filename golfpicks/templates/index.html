@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+
+
+{% block title %}
+<title>Golf Picks</title>
+{% endblock %}
+
+{% block content %}
+  <div class=container1>
+    <h2>Golf Picks Scoring</h1>
+
+    <h3>{{ event_name }}</h3>
+  </div>
+  <!-- <ul>
+    {% for key, value in scores.items %} 
+    <li><strong>Golfer: {{key}} = {{value}}</strong></li>
+    {% endfor %} 
+  </ul> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs">
+        Punter
+      </div>
+      <div class="col-xs">
+        Golfer 1
+      </div>
+      <div class="col-xs">
+        Golfer 2
+      </div>
+      <div class="col-xs">
+        Golfer 3
+      </div>
+      <div class="col-xs">
+        Score
+      </div>
+    </div>
+
+    {% for standing in standings %}
+    <div class="row">
+      <div class="col-xs">
+        {{ standing.punter }} 
+      </div>
+      <div class="col-xs">
+        {{ standing.golfer1 }} 
+      </div>
+      <div class="col-xs">
+        {{ standing.golfer2 }} 
+      </div>
+      <div class="col-xs">
+        {{ standing.golfer3 }} 
+      </div>
+      <div class="col-xs">
+        {{ standing.score }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
