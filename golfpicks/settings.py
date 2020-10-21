@@ -25,7 +25,7 @@ SECRET_KEY = '=^@#rafnrvg6nz6zox7mw0+a+6iai27t4pp+8pv07+ik@4a^yx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.207', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.0.207', '127.0.0.1', 'dermo.pythonanywhere.com']
 
 
 # Application definition
