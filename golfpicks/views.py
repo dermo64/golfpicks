@@ -48,7 +48,7 @@ def index(request):
     
     # Available books (status = 'a')
 #    num_instances_available = BookInstance.objects.filter(status__exact='a').count()
-    r =requests.get('https://www.golfchannel.com/api/v2/events/19164/leaderboard')
+    r =requests.get('https://www.golfchannel.com/api/v2/events/18491/leaderboard')
 
     picks = Pick.objects.filter(event__external_id__exact=19164)
 
