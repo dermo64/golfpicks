@@ -14,7 +14,7 @@ class Punter(models.Model):
 
 class Event(models.Model):
     """Model representing a event."""
-    name = models.CharField(max_length=200, help_text='Enter the punters name')
+    name = models.CharField(max_length=200, help_text='Enter the Evetns name')
     external_id = models.IntegerField(help_text='Enter the golf channel event id')
     
     def __str__(self):
