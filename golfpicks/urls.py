@@ -22,3 +22,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('test', views.test, name='test'),
 ]
+
+admin.site.site_header = "Golfpicks Admin"
+admin.site.site_title = "Golfpicks Admin Portal"
+admin.site.index_title = "Welcome to Golfpicks"
