@@ -9,6 +9,7 @@ import json
 from golfpicks.models import Golfer, Pick, Punter, Event
 
 def get_cutscore(players):
+    """Return the score of the first player cut"""
     for i in players:
         if i['status'] == 'Cut':
             return get_score(i['position'])
@@ -18,8 +19,6 @@ def get_cutscore(players):
 def get_score(pos):
         if pos is None:
             return 0
-        else:
-            print("Not none")
         return int(pos) if pos[0] != 'T' else int(pos[1:])
 
 def get_standing(pick, scores):
@@ -35,26 +34,9 @@ def get_standing(pick, scores):
 
     return standing
 
-
-#from background_task import background
-
-# @background(schedule=1)
-# def bk_task():
-#     r =requests.get('https://www.golfchannel.com/api/v2/events/19163/leaderboard')
-
-#     my_json = json.loads(r.text)
-#     print('im in here')
-#     print(my_json['result']['eventName'])
-
 def index(request):
     """View function for home page of site."""
 
-  #  bk_task()
-
-    # Generate counts of some of the main objects
-    
-    # Available books (status = 'a')
-#    num_instances_available = BookInstance.objects.filter(status__exact='a').count()
     r =requests.get('https://www.golfchannel.com/api/v2/events/18491/leaderboard')
 
     picks = Pick.objects.filter(event__external_id__exact=18491)
