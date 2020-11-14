@@ -12,7 +12,7 @@ def get_cutscore(players):
     """Return the score of the first player cut"""
     scores = [get_score(i['position']) for i in players if get_score(i['position']) != 999]
 
-    return max(scores) + 1
+    return max(scores) + scores.count(max(scores))
 
 def get_score(pos):
         if pos is None:
