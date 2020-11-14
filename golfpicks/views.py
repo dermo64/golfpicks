@@ -10,11 +10,9 @@ from golfpicks.models import Golfer, Pick, Punter, Event
 
 def get_cutscore(players):
     """Return the score of the first player cut"""
-    for i in players:
-        if i['status'] == 'Cut':
-            return get_score(i['position'])
+    scores = [get_score(i['position']) for i in players if get_score(i['position']) != 999]
 
-    return 1000
+    return max(scores) + 1
 
 def get_score(pos):
         if pos is None:
