@@ -37,7 +37,7 @@ def index(request):
 
     r =requests.get('https://www.golfchannel.com/api/v2/events/19208/leaderboard')
 
-    picks = Pick.objects.filter(event__external_id__exact=18491)
+    picks = Pick.objects.filter(event__external_id__exact=19208)
 
     my_json = json.loads(r.text)
 
