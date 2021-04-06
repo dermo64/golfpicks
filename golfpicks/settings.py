@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     #Extensions
     'django_extensions',
 
-    'background_task',
-
     'golfpicks'
 ]
 
