@@ -61,11 +61,11 @@ def index(request):
 
     position = 0
     cur_score = -1000
-    for standing in standings:
-        if cur_score != standing['score']:
-            position += 1
-            cur_score = standing['score']
-        standing['position'] = position
+  #  for standing in standings:
+  #      if cur_score != standing['score']:
+  #          position += 1
+  #          cur_score = standing['score']
+  #      standing['position'] = position
 
     context = {
         'event_name': my_json['result']['eventName'],
