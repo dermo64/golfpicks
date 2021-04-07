@@ -22,7 +22,7 @@ def get_score(pos):
 def get_par(golfer):
     if(golfer['status'] in ('Cut', 'Withdrawn')):
         return 1000
-    return golfer['overallPar']
+    return int(golfer['overallPar'])
 
 def get_standing(pick, scores):
     """Returnn a string comprised of golfers and their scores and the total score for a punter's picks"""
@@ -54,6 +54,8 @@ def index(request):
         [(n['firstName'] + ' ' + n['lastName'], get_par(n)) for n in my_json['result']['golfers'] ])   
 
     standings = sorted([get_standing(pick, scores) for pick in picks], key = lambda standing: standing['score'])
+
+
     
     context = {
         'event_name': my_json['result']['eventName'],
