@@ -35,7 +35,7 @@ def get_standing(pick, scores):
     standing['golfer3'] = golfers[2] + ': ' + (str(scores[golfers[2]]) if scores[golfers[2]] != 1000 else 'Elim')
     standing['score'] = scores[golfers[0]] + scores[golfers[1]] + scores[golfers[2]]
 
-    standing['position'] = 1
+    #standing['position'] = 1
 
     standing['eliminated'] = scores[golfers[0]] == 1000 or scores[golfers[1]] == 1000 or scores[golfers[2]] == 1000
 
@@ -59,8 +59,8 @@ def index(request):
 
     standings = sorted([get_standing(pick, scores) for pick in picks], key = lambda standing: standing['score'])
 
-    position = 0
-    cur_score = -1000
+ #   position = 0
+  #  cur_score = -1000
   #  for standing in standings:
   #      if cur_score != standing['score']:
   #          position += 1
