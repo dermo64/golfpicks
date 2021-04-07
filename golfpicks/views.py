@@ -22,7 +22,7 @@ def get_score(pos):
 def get_par(golfer):
     if(golfer['status'] in ('Cut', 'Withdrawn')):
         return 1000
-    if golfer['name'] == 'Jordan Speith':
+    if golfer['firstName'] == 'Jordan':
         return -20
     return int(golfer['overallPar'])
 
