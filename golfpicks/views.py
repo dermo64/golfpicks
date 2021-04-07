@@ -22,8 +22,6 @@ def get_score(pos):
 def get_par(golfer):
     if(golfer['status'] in ('Cut', 'Withdrawn')):
         return 1000
-    if golfer['firstName'] == 'Jordan':
-        return -20
     return int(golfer['overallPar'])
 
 def get_standing(pick, scores):
