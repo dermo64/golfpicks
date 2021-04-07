@@ -20,9 +20,9 @@ def get_score(pos):
         return int(pos) if pos[0] != 'T' else int(pos[1:])
 
 def get_par(golfer):
-    if(n['status'] in ('Cut', 'Withdrawn')):
+    if(golfer['status'] in ('Cut', 'Withdrawn')):
         return 1000
-    return n['overallPar']
+    return golfer['overallPar']
 
 def get_standing(pick, scores):
     """Returnn a string comprised of golfers and their scores and the total score for a punter's picks"""
