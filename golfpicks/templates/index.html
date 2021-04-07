@@ -20,6 +20,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xs">
+        Pos
+      </div>
+      <div class="col-xs">
         Punter
       </div>
       <div class="col-xs">
@@ -36,8 +39,11 @@
       </div>
     </div>
 
-    {% for standing in standings %}
+    {% for pos, standing in enumerate(standings) %}
     <div class="row">
+      <div class="col-xs">
+        {{ standing.position }} 
+      </div>
       <div class="col-xs">
         {{ standing.punter }} 
       </div>

@@ -57,6 +57,14 @@ def index(request):
 
     standings = sorted([get_standing(pick, scores) for pick in picks], key = lambda standing: standing['score'])
 
+    position = 0
+    cur_score = -1000
+    for standing in standings:
+        if cur_score != standing['score']:
+            position += 1
+            cur_score = standing['score']
+        standing['position'] = position
+
     context = {
         'event_name': my_json['result']['eventName'],
         'standings': standings,
