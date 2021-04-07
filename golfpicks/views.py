@@ -42,9 +42,9 @@ def get_standing(pick, scores):
 def index(request):
     """View function for home page of site."""
 
-    r =requests.get('https://www.golfchannel.com/api/v2/events/18491/leaderboard')
+    r =requests.get('https://www.golfchannel.com/api/v2/events/19163/leaderboard')
 
-    picks = Pick.objects.filter(event__external_id__exact=18491)
+    picks = Pick.objects.filter(event__external_id__exact=19163)
 
     my_json = json.loads(r.text)
 
