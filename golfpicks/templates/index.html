@@ -42,10 +42,18 @@
         {{ standing.punter }} 
       </div>
       <div class="col-xs">
-        {{ standing.golfer1 }} 
+        {% if standing.golfer1 == 1000 %}
+          E
+        {% else %}
+          {{ standing.golfer1 }}
+        {% endif %}
       </div>
       <div class="col-xs">
-        {{ standing.golfer2 }} 
+        {% if standing.golfer1 == 1000 %}
+          E
+        {% else %}
+          {{ standing.golfer2 }}
+        {% endif %}
       </div>
       <div class="col-xs">
         {{ standing.golfer3 }} 
