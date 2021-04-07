@@ -19,6 +19,11 @@ def get_score(pos):
             return 0
         return int(pos) if pos[0] != 'T' else int(pos[1:])
 
+def get_par(golfer):
+    if(n['status'] in ('Cut', 'Withdrawn')):
+        return 1000
+    return n['overallPar']
+
 def get_standing(pick, scores):
     """Returnn a string comprised of golfers and their scores and the total score for a punter's picks"""
     standing = {'punter': pick.punter}
@@ -35,15 +40,18 @@ def get_standing(pick, scores):
 def index(request):
     """View function for home page of site."""
 
-    r =requests.get('https://www.golfchannel.com/api/v2/events/19208/leaderboard')
+    r =requests.get('https://www.golfchannel.com/api/v2/events/18491/leaderboard')
 
-    picks = Pick.objects.filter(event__external_id__exact=19208)
+    picks = Pick.objects.filter(event__external_id__exact=18491)
 
     my_json = json.loads(r.text)
 
     cut_score = get_cutscore(my_json['result']['golfers'])
 
-    scores = dict([(n['firstName'] + ' ' + n['lastName'], min(get_score(n['position']), cut_score)) for n in my_json['result']['golfers'] ])
+    #scores = dict(
+    #    [(n['firstName'] + ' ' + n['lastName'], min(get_score(n['position']), cut_score)) for n in my_json['result']['golfers'] ])
+    scores = dict(
+        [(n['firstName'] + ' ' + n['lastName'], get_par(n)) for n in my_json['result']['golfers'] ])   
 
     standings = sorted([get_standing(pick, scores) for pick in picks], key = lambda standing: standing['score'])
     
