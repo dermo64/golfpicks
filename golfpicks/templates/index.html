@@ -51,7 +51,11 @@
         {{ standing.golfer3 }} 
       </div>
       <div class="col-xs">
-        {{ standing.score }}
+        {% if standing.eliminated %}
+          E
+        {% else %}
+         {{ standing.score }}
+        {% endif %}
       </div>
     </div>
     {% endfor %}

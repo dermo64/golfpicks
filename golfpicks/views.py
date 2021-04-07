@@ -35,6 +35,8 @@ def get_standing(pick, scores):
     standing['golfer3'] = golfers[2] + ' ' + (str(scores[golfers[2]]) if scores[golfers[2]] != 1000 else 'E')
     standing['score'] = scores[golfers[0]] + scores[golfers[1]] + scores[golfers[2]]
 
+    standing['eliminated'] = scores[golfers[0]] == 1000 or scores[golfers[1]] or scores[golfers[2]]
+
     return standing
 
 def index(request):
@@ -55,8 +57,6 @@ def index(request):
 
     standings = sorted([get_standing(pick, scores) for pick in picks], key = lambda standing: standing['score'])
 
-
-    
     context = {
         'event_name': my_json['result']['eventName'],
         'standings': standings,
