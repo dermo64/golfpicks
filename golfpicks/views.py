@@ -30,9 +30,9 @@ def get_standing(pick, scores):
 
     golfers = [pick.picks.values()[0]['name'], pick.picks.values()[1]['name'], pick.picks.values()[2]['name']]
     
-    standing['golfer1'] = golfers[0] + ' ' + str(scores[golfers[0]])
-    standing['golfer2'] = golfers[1] + ' ' + str(scores[golfers[1]])
-    standing['golfer3'] = golfers[2] + ' ' + str(scores[golfers[2]])
+    standing['golfer1'] = golfers[0] + ' ' + (str(scores[golfers[0]]) if scores[golfers[0]] != 1000 else 'E')
+    standing['golfer2'] = golfers[1] + ' ' + (str(scores[golfers[1]]) if scores[golfers[1]] != 1000 else 'E')
+    standing['golfer3'] = golfers[2] + ' ' + (str(scores[golfers[2]]) if scores[golfers[2]] != 1000 else 'E')
     standing['score'] = scores[golfers[0]] + scores[golfers[1]] + scores[golfers[2]]
 
     return standing
