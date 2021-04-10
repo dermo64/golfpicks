@@ -20,7 +20,7 @@ def get_score(pos):
         return int(pos) if pos[0] != 'T' else int(pos[1:])
 
 def get_par(golfer):
-    if(golfer['status'] in ('Cut', 'Withdrawn')):
+    if(golfer['status'] in ('Cut', 'Withdrawn', 'Disqualified')):
         return 1000
     return int(golfer['overallPar'])
 
